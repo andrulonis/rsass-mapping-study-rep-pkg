@@ -5,6 +5,7 @@ import seaborn as sns
 from cycler import cycler
 import sys
 import matplotlib.colors as mcolors
+import os
 SHOW = True
 SAVE = False
 
@@ -137,7 +138,7 @@ csv_title_to_plot_title = {
     ROBO_MODEL : "Type of Robots",
     DEPLOY : "System Deployment",
     REALISM : "System Realism",
-    EVAL_METRIC : "Evaluation Strategy",
+    EVAL_METRIC : "Evaluation Metric",
     EVAL_DEPTH : "Evaluation Depth",
     CHANGE_SOURCE : "Source of Change",
     CHANGE_TYPE : "Type of Change",
@@ -179,7 +180,8 @@ next_color = next(color_cycle)['color']
 
 
 plt.rcParams['axes.prop_cycle'] = cycler('color', [next_color])
-print((next_color))
+
+
 
 def plot_plot(title):
     plt.tight_layout()
@@ -319,7 +321,7 @@ def multi_df_plot(possibilities, original_data, subject_title, plot_title, plot_
         smt.bar_label(smt.bar(list(range(len(type_df['Num. Occurrences']))),list(type_df['Num. Occurrences'])),label_type="center", fontweight = "medium", fontsize = "large")
         smt.set_xticklabels(type_df[subject_title])
     elif(plot_type == "barh"):
-        smt = type_df.plot(kind=plot_type, legend=False, xlabel='Num. Occurrences', ylabel=subject_title, color=next_color)
+        smt = type_df.plot(kind=plot_type, legend=False, xlabel='Num. Occurrences', ylabel="", color=next_color)
         smt.bar_label(smt.barh(list(range(len(type_df['Num. Occurrences']))),list(type_df['Num. Occurrences'])),label_type="center", fontweight = "medium", fontsize = "large")
 
         smt.set_yticklabels(type_df[subject_title], wrap=True)
@@ -341,13 +343,13 @@ def barplot_paper_id_by_x(x, plot_filename, x_title, _kind='bar'):
         if(x_title == "Publication Year"):
             count_by_x_df.sort_values(by='Publication Year', ascending=True, inplace=True)
 
-            smt = count_by_x_df.plot(kind=_kind, legend=False, ylabel="Number of Studies", yticks = [1,2,3,4])
+            smt = count_by_x_df.plot(kind=_kind, legend=False, ylabel="Number of Studies", yticks = [1,2,3,4], title="")
         else:
-            smt = count_by_x_df.plot(kind=_kind, legend=False, ylabel="Number of Studies")
+            smt = count_by_x_df.plot(kind=_kind, legend=False, ylabel="Number of Studies", title="")
         smt.bar_label(smt.bar(list(range(len(count_by_x_df['ID']))),list(count_by_x_df['ID'])),label_type="center", fontweight = "medium", fontsize = "large")
 
     elif(_kind == "barh"):
-        smt = count_by_x_df.plot(kind=_kind, legend=False, xlabel="Number of Studies")
+        smt = count_by_x_df.plot(kind=_kind, legend=False, xlabel="Number of Studies", ylabel="")
         smt.bar_label(smt.barh(list(range(len(count_by_x_df['ID']))),list(count_by_x_df['ID'])),label_type="center", fontweight = "medium", fontsize = "large")
 
 
@@ -393,6 +395,7 @@ def test_horizontal(param_one, param_two):
 
 
 if __name__ == "__main__":
+    
     passed_options = sys.argv[1:]
 
     if("--show") in passed_options:
@@ -407,7 +410,7 @@ if __name__ == "__main__":
                 csv_data[data_key].append(row[data_key])
             
 
-
+        os.makedirs("plots/",exist_ok=True)
         plot_by_year()
 
         RQ11()

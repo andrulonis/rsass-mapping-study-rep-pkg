@@ -86,7 +86,7 @@ create_pilot("selection/pilots/pilot_two")
 
 new_stuff = []
 
-with open(input("second csv input file name > "), 'r', encoding='utf-8', newline="") as csvfile:
+with open("data/all_filtered_by_title.csv", 'r', encoding='utf-8', newline="") as csvfile:
     venue_reader = csv.DictReader(csvfile)
     #next(venue_reader) #skip header
     for row in venue_reader:
