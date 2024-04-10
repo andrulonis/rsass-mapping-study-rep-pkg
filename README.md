@@ -39,7 +39,7 @@ Here a documentation on how to use the replication material should be provided.
 
 5. For generate_plots.py this script generates a bar plot for every data parameter from the vertical analysis. This will generate all those found in our paper, but also those we did not include but use to report on the results. There is one option which can be passed to this script `--show` this makes it so that the plots are displayed to the user one by one rather than saved in a folder called plots. This is useful if you are modifying the script and would not like to overwrite previous versions of the plots.
 
-6. For the horizontal_analysis we provide a simple R script. If you would like to use the script you of course need a working installation of R (https://cran.r-project.org/) and to first install its dependencies.
+6. For the horizontal_synthesis we provide a simple R script. If you would like to use the script you of course need a working installation of R (https://cran.r-project.org/) and to first install its dependencies.
 ### Snowballing
 The snowballing was done semi-manually. For forward snowballing we used Google Scholar to find all the papers which cite ours, manually recording the DOI and title of each study and removing duplicates.
 For the backwards snowballing, we made use of https://github.com/helenocampos/PDFReferencesExtractor, and corrected any mistakes, and used tools such as Zotero to grab the missing DOIs from titles when this occurred. 

@@ -18,10 +18,10 @@ paper_id = []
 adap_purp_poss = ["Recover from errors/faults", "Optimize resource usage","Deal with environmental changes","Keep meeting quality requirements at runtime","Change functional behavior","Optimize system performance","Recover from attacks"]
 qa_poss = ["performance efficiency","reliability","safety","functional suitability","security"]
 monitor_poss = ["Environment", "Managed System", "Mission"]
-analyze_poss = ["Comparison to threshold(s)", "Done during Plan", "Analyzing/Aggregating data", "Task/User-driven", "Comparison to expected system state", "Logical Inference", "Other"]
-plan_poss = ["Using AI Planning Languages","Determining the optimal choice","Relying on design-time rules/models"]
-execute_poss = ["Component Redeployment ","Swapping around of Component(s)","Change in relationship(s) between components","Reparameterization of Component(s)","Behavioral/Task"]
-logic_poss = ["search procedure","constraint solving/model checking","ontological reasoning","domain-specific algorithm","AI planner","utility calculation","comparison to threshold","numerical optimization"]
+analyze_poss = ["Comparison to threshold(s)", "Done during Plan", "Analyzing/Aggregating data", "Task/User-driven", "System State Anomaly Detection", "Logical Inference", "Other"]
+plan_poss = ["Using AI Planning Languages","Determining the optimal choice","Relying on Design-time Rules/Models"]
+execute_poss = ["Component Redeployment ","Addition and/or Removal of Component(s)","Change in Relationship(s) Between Components","Reparameterization of Component(s)"]
+logic_poss = ["search procedure","constraint solving/model checking","ontological reasoning","domain-specific algorithm","AI planner","utility calculation","numerical optimization"]
 
 eval_poss = ["Quality","Mission Performance","Overhead (Introduced)","Domain-specific Performance", "Resource Consumption"]
 
@@ -231,8 +231,16 @@ labels_too_long = {
     "domain-specific algorithm" : "Domain-Specific Algorithm",
     "AI planner" :  "AI Planner",
     "utility calculation" : "Utility Calculation",
-    "comparison to threshold" : "Comparison To Threshold",
-    "numerical optimization" : "Numerical Optimization"
+    "Comparison to threshold(s)" : "Comparison to Threshold(s)",
+    "numerical optimization" : "Numerical Optimization",
+    "DoForeseen" : "Foreseen",
+    "DoFrequent" : "Frequent",
+    "DoShort" : "Short",
+    "DoCentralized" : "Centralized",
+    "DoSignificant" : "Significant",
+    "DoResilient" : "Resilient",
+    "dependent" : "Dependent",
+
 }
 
     
@@ -311,6 +319,7 @@ def multi_df_plot(possibilities, original_data, subject_title, plot_title, plot_
 
     for i, poss in enumerate(possibilities):
         if(poss in labels_too_long):
+
             possibilities[i] = labels_too_long[poss]
         
     type_df = pd.DataFrame(data={subject_title: possibilities, 'Num. Occurrences': occurrences_of_type})
@@ -334,11 +343,15 @@ def barplot_paper_id_by_x(x, plot_filename, x_title, _kind='bar'):
 
     count_by_x_df =  x_df.groupby(x_title).count()
     count_by_x_df.drop("_", inplace=True, errors="ignore")
-    print(count_by_x_df)
 
     count_by_x_df.sort_values(by='ID', ascending=True, inplace=True)
 
+    count_by_x_df.rename(index=labels_too_long, inplace=True)
+    # for replace_word in list(labels_too_long.keys()):
+    #     count_by_x_df.replace(to_replace=labels_too_long, inplace=True)
+    # print(count_by_x_df.index)
 
+    print(count_by_x_df)
     if(_kind == "bar"):
         if(x_title == "Publication Year"):
             count_by_x_df.sort_values(by='Publication Year', ascending=True, inplace=True)
