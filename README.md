@@ -1,4 +1,4 @@
-# How is software architecture-based self-adaptation applied in robotics?
+# Software Architecture-based Self-adaptation in Robotics
 This repository is a companion page for the following (pending) publication:
 > Author Names. Publication year. Thesis / Paper title. Publication venue / proceedings.
 
