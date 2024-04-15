@@ -3,7 +3,7 @@ library(plyr)
 library(ggplot2)
 library(reshape2)
 
-input_file <- './data.csv'
+input_file <- '../data/cleaned_data.csv'
 outputFile <- './horizontal.pdf'
 outputFileSelf <- './horizontal_self.pdf'
 
@@ -171,3 +171,4 @@ for(i in 1:resultLength) {
 }
 
 dev.off()
+

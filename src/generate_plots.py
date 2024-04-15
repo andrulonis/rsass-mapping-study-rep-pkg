@@ -20,7 +20,7 @@ qa_poss = ["performance efficiency","reliability","safety","functional suitabili
 monitor_poss = ["Environment", "Managed System", "Mission"]
 analyze_poss = ["Comparison to threshold(s)", "Done during Plan", "Analyzing/Aggregating data", "Task/User-driven", "System State Anomaly Detection", "Logical Inference", "Other"]
 plan_poss = ["Using AI Planning Languages","Determining the optimal choice","Relying on Design-time Rules/Models"]
-execute_poss = ["Component Redeployment ","Addition and/or Removal of Component(s)","Change in Relationship(s) Between Components","Reparameterization of Component(s)"]
+execute_poss = ["Component Redeployment ","Addition &/or Removal of Component(s)","Change in Relationship(s) Between Components","Reparameterization of Component(s)"]
 logic_poss = ["search procedure","constraint solving/model checking","ontological reasoning","domain-specific algorithm","AI planner","utility calculation","numerical optimization"]
 
 eval_poss = ["Quality","Mission Performance","Overhead (Introduced)","Domain-specific Performance", "Resource Consumption"]
@@ -240,7 +240,7 @@ labels_too_long = {
     "DoSignificant" : "Significant",
     "DoResilient" : "Resilient",
     "dependent" : "Dependent",
-
+    "Addition &/or Removal of Component(s)" : "Addition and/or Removal of Component(s)"
 }
 
     
