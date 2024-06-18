@@ -6,14 +6,14 @@ import os
 from zipfile import ZipFile 
 from zipfile import ZIP_DEFLATED
 
-DBLP_XML = 'data/dblp-23-02-2023.xml'
-DBLP_XML_ZIP = 'data/dblp-23-02-2023.zip'
+DBLP_XML = 'data/dblp-2024-06-02.xml'
+DBLP_XML_ZIP = 'data/dblp-2024-06-02.zip'
 
-DBLP_DTD = 'data/dblp.dtd'
+DBLP_DTD = 'data/dblp-2023-06-28.dtd'
 # DBLP_DTD = 'data/dblp-new.dtd'
 
 YEAR_MIN = 2012
-YEAR_MAX = 2023 # Although you may expect this to be 2022, there is a non-zero set of papers which list their publication year as 2023, but are actually available online in 2022, so we assess those edge cases through our exclusion criteria separately.
+YEAR_MAX = 2024
 
 SEAMS_FIX = True
 #I included the second / because otherwise if there is a conference e.g. icrac it will get included.
