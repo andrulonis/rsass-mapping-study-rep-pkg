@@ -53,7 +53,7 @@ venue_to_category = {
 
 ARCHITECTURE_KWORDS = ["architect"]
 ROBOTICS_KWORDS = ["robot"]
-SAS_KWORDS = ["self-", "adapt", "reconfig"]
+SAS_KWORDS = ["self-", "adapt", "reconfig", "re-config", "(re-)config", "(re)config"]
 
 FROM_ROBOTICS = ARCHITECTURE_KWORDS + SAS_KWORDS
 FROM_SOFTWARE = ROBOTICS_KWORDS + SAS_KWORDS
